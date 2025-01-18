@@ -30,7 +30,7 @@
 | cover_delivery_cost_id | integer    | null: false                    |
 | region_id              | integer    | null: false                    |
 | delivery_id            | integer    | null: false                    |
-| price                  | string     | null: false                    |
+| price                  | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association

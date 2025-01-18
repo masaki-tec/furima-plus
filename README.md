@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- has_one    :buys
+- has_one    :buy
 
 ## buys テーブル
 
@@ -49,7 +49,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :deliverys
+- has_one    :delivery
 
 ## deliverys テーブル
 

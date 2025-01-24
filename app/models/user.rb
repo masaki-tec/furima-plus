@@ -19,6 +19,4 @@ class User < ApplicationRecord
     validates :last_name_furigana, presence: true
     validates :first_name_furigana, presence: true
   end
-
-  has_many :items
 end

@@ -40,6 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_25_202053) do
   end
 
   create_table "items", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "product_description", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "cover_delivery_cost_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_id", null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

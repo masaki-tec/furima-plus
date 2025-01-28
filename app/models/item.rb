@@ -1,4 +1,13 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :status
+  belongs_to :cover_delivery_cost
+  belongs_to :prefecture
+  belongs_to :delivery
+
+  belongs_to :user
+
   has_one_attached :image
 
   validates :name, presence: true
@@ -16,6 +25,4 @@ class Item < ApplicationRecord
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
                       format: { with: /\A\d+\z/ }
   end
-
-  belongs_to :user
 end

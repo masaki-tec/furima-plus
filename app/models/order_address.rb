@@ -7,7 +7,8 @@ class OrderAddress
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :municipality, presence: true
   validates :street_address, presence: true
-  validates :telephone_number, presence: true
+  validates :telephone_number, presence: true, numericality: { only_integer: true }, length: { in: 10..11 },
+                               format: { with: /\A[0-9]+\z/, message: 'must be a valid number' }
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :token, presence: true

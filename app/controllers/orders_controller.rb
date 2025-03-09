@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item
+  before_action :check_permissions, only: [:index, :create]
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @item = Item.find(params[:item_id])
@@ -32,5 +35,15 @@ class OrdersController < ApplicationController
       card: order_params[:token], # カードトークン
       currency: 'jpy' # 通貨の種類（日本円）
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def check_permissions
+    return unless @item.user_id == current_user.id || @item.order.present?
+
+    redirect_to root_path
   end
 end

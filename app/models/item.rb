@@ -16,11 +16,11 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :image, presence: true
 
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :cover_delivery_cost_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :delivery_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :category_id, numericality: { other_than: 1, message: 'を入力してください' }
+  validates :status_id, numericality: { other_than: 1, message: 'を入力してください' }
+  validates :cover_delivery_cost_id, numericality: { other_than: 1, message: 'を入力してください' }
+  validates :prefecture_id, numericality: { other_than: 1, message: 'を入力してください' }
+  validates :delivery_id, numericality: { other_than: 1, message: 'を入力してください' }
 
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }

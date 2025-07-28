@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :check_sold, only: [:edit, :update]
+  before_action :set_maincategories, only: [:new, :create]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -21,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @category = @item.category
   end
 
   def edit
@@ -64,5 +67,9 @@ class ItemsController < ApplicationController
 
   def check_sold
     redirect_to root_path if @item.order.present?
+  end
+
+  def set_maincategories
+    @maincategories = Category.where(ancestry: nil)
   end
 end

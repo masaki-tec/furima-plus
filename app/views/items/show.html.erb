@@ -51,7 +51,11 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.category.name %></td>
+          <td class="detail-value">
+            <% if @item.category.present? %>
+              <%= @item.category.path.map(&:name).join(" / ") %>
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>

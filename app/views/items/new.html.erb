@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, id: 'new_item' ,local: true do |f| %>
+    <%= form_with model: @item_tag, url: items_path, id: 'new_item' ,local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -19,7 +19,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image", name: "item[image]", multiple: false %>
+        <%= f.file_field :image, id:"item-image", multiple: false %>
         <div id="previews"></div>
       </div>
 
@@ -52,8 +52,15 @@
         </div>
 
         <div id="select-wrap">
-          <%= f.collection_select :category_id, @maincategories, :id, :name, { include_blank: "---" }, { id: "parent-category", class: "select-box" } %>
+          <%= select_tag "parent", options_from_collection_for_select(@maincategories, :id, :name), prompt: "---", id: "parent-category", class: "select-box" %>
         </div>
+
+        <%= f.hidden_field :category_id, id: "selected-category-id" %>
+
+    <div class="new-items">
+      <div class="weight-bold-text">タグ（任意）</div>
+          <%= f.text_field :tag_name, class: "items-text", id: "item-tag", placeholder: "例）新品、春物、限定" %>
+      </div>
         
         <div class="weight-bold-text">
           商品の状態

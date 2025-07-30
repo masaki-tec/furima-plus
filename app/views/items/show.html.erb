@@ -57,6 +57,18 @@
             <% end %>
           </td>
         </tr>
+
+        <tr>
+          <th class="detail-item">タグ</th>
+          <td class="detail-value">
+            <% if @item.tags.present? %>
+              <%= @item.tags.map(&:tag_name).join(', ') %>
+            <% else %>
+              なし
+            <% end %>
+          </td>
+        </tr>
+
         <tr>
           <th class="detail-item">商品の状態</th>
           <td class="detail-value"><%= @item.status.name %></td>

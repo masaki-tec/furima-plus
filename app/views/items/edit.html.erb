@@ -7,7 +7,7 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, id: 'new_item' ,local: true do |f| %>
+   <%= form_with model: @item_tag, url: item_path(@item_tag.id), method: :patch, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -22,6 +22,14 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
+
+        <% if @item.image.attached? %>
+          <div>
+            <p>現在の画像：</p>
+            <%= image_tag @item.image%>
+          </div>
+        <% end %>
+
         <%= f.file_field :image, id:"item-image", name: "item[image]" %>
         <div id="previews"></div>
       </div>
@@ -53,6 +61,12 @@ app/assets/stylesheets/items/new.css %>
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        
+        <div class="new-items">
+          <div class="weight-bold-text">タグ（任意）</div>
+          <%= f.text_field :tag_name, class: "items-text", id: "item-tag", placeholder: "例）新品、春物、限定" %>
+        </div>
+
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>

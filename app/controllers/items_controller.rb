@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
       prefecture_id: @item.prefecture_id,
       delivery_id: @item.delivery_id,
       price: @item.price,
-      image: @item.image,
       tag_name: tag_name
     )
   end

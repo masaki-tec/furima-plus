@@ -38,11 +38,10 @@ class ItemTag
   def update
     item = Item.find(id)
 
-    item.update(
+    item.assign_attributes(
       name: name,
       product_description: product_description,
       price: price,
-      image: image,
       category_id: category_id,
       status_id: status_id,
       cover_delivery_cost_id: cover_delivery_cost_id,
@@ -51,6 +50,12 @@ class ItemTag
       user_id: user_id
     )
 
+    # 🔽 新しい画像があれば上書き
+    item.image.attach(image) if image.present?
+
+    item.save
+
+    # タグを一度削除して再登録
     item.item_tag_relations.destroy_all
 
     return if tag_name.blank?

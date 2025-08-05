@@ -14,6 +14,8 @@ class Item < ApplicationRecord
   has_many :item_tag_relations, dependent: :destroy
   has_many :tags, through: :item_tag_relations
 
+  has_many :comments
+
   validates :name, presence: true
   validates :product_description, presence: true
   validates :price, presence: true

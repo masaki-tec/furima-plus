@@ -1,0 +1,46 @@
+.comment-form{
+  display: flex;
+}
+
+.comment-text{
+  display: block;
+  margin-top: 20px;
+}
+
+.comment-submit{
+  display: block;
+  margin-top: 20px;
+}
+
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
+}
+
+.user-info{
+  color: gray;
+  font-weight: bold;
+}
+
+#comments {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.comment-box {
+  width: 40vw;
+  background-color: #fff;
+  margin: 5vh 0;
+  text-align: center; /* ボタンなどは中央に */
+}
+
+.comment-inner {
+  text-align: left;         /* ← ここでテキストを左寄せ */
+  width: 100%;
+  margin-left: 0;
+  padding: 10px;
+}

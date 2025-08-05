@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
  resources :items do
+  resources :comments, only: :create
+  resources :orders, only: [:create, :index]
+  
   collection do
       get 'search'
+  end
 end
-  resources :orders, only: [:create, :index]
-end
+
  resources :articles
  
  resources :categories, only:[:new]

@@ -4,8 +4,22 @@ class ItemsController < ApplicationController
   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :check_sold, only: [:edit, :update]
   before_action :set_maincategories, only: [:new, :create, :edit, :update]
+
   def index
-    @items = Item.all.order('created_at DESC')
+    # Ransack用の検索オブジェクト
+    @q = Item.ransack(params[:q])
+
+    # カテゴリー階層対応
+    if params.dig(:q, :category_id_eq).present?
+      category = Category.find(params[:q][:category_id_eq])
+      category_ids = category.subtree_ids
+
+      # params[:q][:category_id_in] に置き換える
+      @q = Item.ransack(params[:q].merge(category_id_in: category_ids).except(:category_id_eq))
+    end
+
+    # 検索結果
+    @items = @q.result(distinct: true).order(created_at: :desc)
   end
 
   def new

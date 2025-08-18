@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
+  before_action :set_ransack_object
 
   private
 
@@ -15,5 +16,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:nickname, :last_name, :first_name, :last_name_furigana, :first_name_furigana,
                                              :birth])
+  end
+
+  def set_ransack_object
+    @q = Item.ransack(params[:q])
   end
 end

@@ -32,4 +32,13 @@ class Item < ApplicationRecord
   def sold_out?
     order.present?
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id name product_description category_id status_id cover_delivery_cost_id prefecture_id delivery_id price user_id
+       created_at updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[user tags category]
+  end
 end

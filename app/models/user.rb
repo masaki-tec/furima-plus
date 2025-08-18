@@ -23,4 +23,9 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_many :comments
+
+  # Ransackで検索可能な属性を明示
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id nickname first_name last_name email created_at updated_at]
+  end
 end

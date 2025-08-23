@@ -9,7 +9,7 @@ class ItemTag
   validates :name, :product_description, :price, :image, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   validates :category_id, :status_id, :cover_delivery_cost_id, :prefecture_id, :delivery_id, presence: true
-  validates :category_id, :status_id, :cover_delivery_cost_id, :prefecture_id, :delivery_id,
+  validates :status_id, :cover_delivery_cost_id, :prefecture_id, :delivery_id,
             numericality: { other_than: 1, message: 'を入力してください' }
 
   def save

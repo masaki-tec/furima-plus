@@ -121,7 +121,8 @@ window.addEventListener('turbo:load', function () {
 
   // 親カテゴリ選択時の処理
   parentCategory.addEventListener('change', function () {
-    setCategoryId(""); // 初期化
+    const parentValue = parentCategory.value;
+    setCategoryId(parentValue); // 親のIDをセット
     selectChildElement('child-select-wrap');
     selectChildElement('grand-child-select-wrap');
     getChildCategoryData();

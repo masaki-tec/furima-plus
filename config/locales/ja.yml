@@ -9,7 +9,9 @@ ja:
         last_name_furigana: 苗字(フリガナ)
         first_name_furigana: 名前(フリガナ)
         
-      item:
+  activemodel:
+    attributes:
+      item_tag:
         name: 商品名
         product_description: 商品の説明
         price: 価格
@@ -19,3 +21,4 @@ ja:
         cover_delivery_cost_id: 配送料の負担
         prefecture_id: 発送元の地域
         delivery_id: 発送までの日数
+    

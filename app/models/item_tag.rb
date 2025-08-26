@@ -12,6 +12,8 @@ class ItemTag
   validates :status_id, :cover_delivery_cost_id, :prefecture_id, :delivery_id,
             numericality: { other_than: 1, message: 'を入力してください' }
 
+  validate :must_be_grandchild_category
+
   def save
     item = Item.create(
       name: name,
@@ -65,5 +67,16 @@ class ItemTag
       tag_record = Tag.find_or_create_by(tag_name: cleaned_tag)
       ItemTagRelation.create(item_id: item.id, tag_id: tag_record.id)
     end
+  end
+
+  private
+
+  def must_be_grandchild_category
+    return if category_id.blank?
+
+    category = Category.find_by(id: category_id)
+    return unless category.nil? || !category.grandchild?
+
+    errors.add(:category_id, 'は最後まで選択してください')
   end
 end

@@ -127,4 +127,14 @@ window.addEventListener('turbo:load', function () {
     selectChildElement('grand-child-select-wrap');
     getChildCategoryData();
   });
+
+  // 編集画面用：hidden_field の値を見て子・孫を初期表示
+  const hiddenCategory = document.getElementById('selected-category-id');
+  if (hiddenCategory && hiddenCategory.value) {
+    const categoryId = hiddenCategory.value;
+
+  // サーバーに categoryId を投げて階層情報を返すエンドポイントを作ると綺麗
+  // 例: /categories/:id/path → [親, 子, 孫] を返す
+  // そこから appendChildSelect / appendGrandChildSelect を再利用して描画
+  }
 });

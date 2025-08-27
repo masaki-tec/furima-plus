@@ -59,7 +59,16 @@ app/assets/stylesheets/items/new.css %>
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        
+        <div id="select-wrap">
+          <%= select_tag "parent",
+              options_from_collection_for_select(@maincategories, :id, :name, @item.category.parent&.parent_id),
+              prompt: "---",
+              id: "parent-category",
+              class: "select-box" %>
+        </div>
+
+        <%= f.hidden_field :category_id, id: "selected-category-id", value: @item.category_id %>
         
         <div class="new-items">
           <div class="weight-bold-text">タグ（任意）</div>

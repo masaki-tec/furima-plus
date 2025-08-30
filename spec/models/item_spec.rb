@@ -55,34 +55,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 
-      it 'category_idが"---"では登録できない' do
-        @item.category_id = 1
+      it 'categoryが紐づいていないと登録できない' do
+        @item.category = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include('Category must exist')
       end
 
       it 'status_idが"---"では登録できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include('Status を入力してください')
       end
 
       it 'cover_delivery_cost_idが"---"では登録できない' do
         @item.cover_delivery_cost_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Cover delivery cost can't be blank")
+        expect(@item.errors.full_messages).to include('Cover delivery cost を入力してください')
       end
 
       it 'prefecture_idが"---"では登録できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include('Prefecture を入力してください')
       end
 
       it 'delivery_idが"---"では登録できない' do
         @item.delivery_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery can't be blank")
+        expect(@item.errors.full_messages).to include('Delivery を入力してください')
       end
 
       it 'userが紐づいていない場合は登録できない' do

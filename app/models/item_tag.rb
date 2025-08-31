@@ -12,6 +12,7 @@ class ItemTag
   validates :status_id, :cover_delivery_cost_id, :prefecture_id, :delivery_id,
             numericality: { other_than: 1, message: 'を入力してください' }
 
+  validates :tag_name, length: { maximum: 20, message: 'は20文字以内で入力してください' }, allow_blank: true
   validate :must_be_grandchild_category
 
   def save

@@ -8,28 +8,40 @@ ja:
         first_name: 名前
         last_name_furigana: 苗字(フリガナ)
         first_name_furigana: 名前(フリガナ)
-                
+
+      tag:
+        tag_name: タグ名
+
+    errors:
+      models:
+        tag:
+          attributes:
+            tag_name:
+              blank: "を入力してください"
+              taken: "はすでに存在します"
+              too_long: "は%{count}文字以内で入力してください"
+
   activemodel:
     attributes:
-        item_tag:
-          name: 商品名
-          product_description: 商品の説明
-          price: 価格
-          image: 画像
-          category_id: カテゴリー
-          status_id: 商品の状況
-          cover_delivery_cost_id: 配送料の負担
-          prefecture_id: 発送元の地域
-          delivery_id: 発送までの日数
-        
-        order_address:
-          post_code: 郵便番号
-          prefecture_id: 都道府県
-          municipality: 市区町村
-          street_address: 番地
-          building_name: 建物名
-          telephone_number: 電話番号
-          token: クレジットカード情報
+      item_tag:
+        name: 商品名
+        product_description: 商品の説明
+        price: 価格
+        image: 画像
+        category_id: カテゴリー
+        status_id: 商品の状況
+        cover_delivery_cost_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        delivery_id: 発送までの日数
+
+      order_address:
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        municipality: 市区町村
+        street_address: 番地
+        building_name: 建物名
+        telephone_number: 電話番号
+        token: クレジットカード情報
 
     errors:
       models:

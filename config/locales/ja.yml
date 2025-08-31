@@ -1,5 +1,11 @@
 ja:
   activerecord:
+    models:
+      tag: "タグ"
+      user: "ユーザー"
+      item: "商品"
+      order_address: "配送先情報"
+
     attributes:
       user:
         nickname: ニックネーム
@@ -11,6 +17,26 @@ ja:
 
       tag:
         tag_name: タグ名
+
+      item:
+        name: 商品名
+        product_description: 商品の説明
+        price: 価格
+        image: 画像
+        category_id: カテゴリー
+        status_id: 商品の状況
+        cover_delivery_cost_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        delivery_id: 発送までの日数
+
+      order_address:
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        municipality: 市区町村
+        street_address: 番地
+        building_name: 建物名
+        telephone_number: 電話番号
+        token: クレジットカード情報
 
     errors:
       models:
@@ -33,6 +59,7 @@ ja:
         cover_delivery_cost_id: 配送料の負担
         prefecture_id: 発送元の地域
         delivery_id: 発送までの日数
+        tag_name: タグ名
 
       order_address:
         post_code: 郵便番号
@@ -45,11 +72,48 @@ ja:
 
     errors:
       models:
+        item_tag:
+          attributes:
+            name:
+              blank: "を入力してください"
+            product_description:
+              blank: "を入力してください"
+            price:
+              blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
+              greater_than_or_equal_to: "は%{count}以上で入力してください"
+              less_than_or_equal_to: "は%{count}以下で入力してください"
+            image:
+              blank: "を入力してください"
+            category_id:
+              blank: "を選択してください"
+            status_id:
+              blank: "を選択してください"
+            cover_delivery_cost_id:
+              blank: "を選択してください"
+            prefecture_id:
+              blank: "を選択してください"
+            delivery_id:
+              blank: "を選択してください"
+            tag_name:
+              too_long: "は%{count}文字以内で入力してください"
+
         order_address:
           attributes:
             post_code:
               invalid: "が正しくありません（ハイフンを含めて入力してください）"
+              blank: "を入力してください"
             telephone_number:
               invalid: "は正しい数字で入力してください"
+              blank: "を入力してください"
             prefecture_id:
+              blank: "を選択してください"
               other_than: "を選択してください"
+            municipality:
+              blank: "を入力してください"
+            street_address:
+              blank: "を入力してください"
+            building_name:
+              blank: "を入力してください"
+            token:
+              blank: "を入力してください"

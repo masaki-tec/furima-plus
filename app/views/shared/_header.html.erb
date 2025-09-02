@@ -1,24 +1,31 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
+      <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
 
-  <%= search_form_for @q, url: items_path, method: :get, html: { class: 'search-form' } do |f| %>
-    <%# キーワード検索（品名・説明・タグ・出品者名） %>
-    <%= f.text_field :name_or_product_description_or_tags_tag_name_or_user_nickname_cont,
+    <%= search_form_for @q, url: items_path, method: :get, html: { class: 'search-form' } do |f| %>
+    
+      <%# キーワード検索（品名・説明・タグ・出品者名） %>
+      <%= f.text_field :name_or_product_description_or_tags_tag_name_or_user_nickname_cont,
                    value: params.dig(:q, :name_or_product_description_or_tags_tag_name_or_user_nickname_cont),
                    class: 'input-box',
                    placeholder: 'キーワード（品名・説明・タグ・出品者名）' %>
 
-    <%# カテゴリー選択（親カテゴリのみ表示） %>
-    <%= f.select :category_id_eq, options_for_select(Category.where(ancestry: nil).map { |c| [c.name, c.id] }, params.dig(:q, :category_id_eq)), include_blank: 'カテゴリーを選択' %>
+      <%# カテゴリー選択（親カテゴリのみ表示） %>
+      <%= f.select :category_id_eq, options_for_select(Category.where(ancestry: nil).map { |c| [c.name, c.id] }, params.dig(:q, :category_id_eq)), include_blank: 'カテゴリーを選択' %>
 
-    <%# 検索ボタン %>
+      <%# 検索ボタン %>
      <button type="submit" class="search-button">
-     <%= image_tag "search.png", class: "search-icon" %>
-  </button>
-  <% end %>
-  
+       <%= image_tag "search.png", class: "search-icon" %>
+     </button>
+    <% end %>
+
+     <%# --- フラッシュメッセージをテキストボックス下に表示 --- %>
+        <% if flash[:alert].present? %>
+          <div class="search-flash-message">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
   </div>
 
   <div class='nav'>

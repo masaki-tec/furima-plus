@@ -102,3 +102,9 @@
   text-decoration: none;
   color: #333333;
 }
+
+.search-flash-message {
+  margin-top: 4px;
+  color: #ff0000;
+  font-size: 16px;
+}

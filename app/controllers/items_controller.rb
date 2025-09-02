@@ -6,6 +6,22 @@ class ItemsController < ApplicationController
   before_action :set_maincategories, only: [:new, :create, :edit, :update]
 
   def index
+    keyword     = params.dig(:q, :name_or_product_description_or_tags_tag_name_or_user_nickname_cont)
+    category_id = params.dig(:q, :category_id_eq)
+
+    # --- 簡易バリデーション ---
+    if keyword.present? && keyword.length > 20
+      flash.now[:alert] = '検索ワードは20文字以内で入力してください'
+      @items = Item.none
+      return
+    end
+
+    if category_id.present? && category_id.to_s !~ /\A[0-9]+\z/
+      flash.now[:alert] = 'カテゴリーが不正です'
+      @items = Item.none
+      return
+    end
+
     # Ransack用の検索オブジェクト
     @q = Item.ransack(params[:q])
 

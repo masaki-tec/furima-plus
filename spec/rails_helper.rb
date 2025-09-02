@@ -63,3 +63,15 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+module BasicAuthHelpers
+  def bypass_basic_auth
+    allow_any_instance_of(ApplicationController)
+      .to receive(:authenticate)
+      .and_return(true)
+  end
+end
+
+RSpec.configure do |config|
+  config.include BasicAuthHelpers, type: :request
+end

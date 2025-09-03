@@ -38,6 +38,9 @@ ja:
         telephone_number: 電話番号
         token: クレジットカード情報
 
+      comment:
+        text: "テキスト"
+
     errors:
       models:
         tag:

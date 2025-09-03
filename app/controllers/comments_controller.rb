@@ -1,10 +1,16 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
     @item = Item.find(params[:item_id])
-    return unless @comment.save
+    @comment = Comment.new(comment_params)
 
-    CommentChannel.broadcast_to @item, { comment: @comment, user: @comment.user }
+    if @comment.save
+      # 成功時はActionCableで全ユーザーに送信
+      CommentChannel.broadcast_to @item, { comment: @comment, user: @comment.user }
+      head :ok
+    else
+      # 失敗時は投稿者だけにJSONで返す
+      render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   private

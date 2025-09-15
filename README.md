@@ -30,7 +30,7 @@
 - キーワード検索とカテゴリー検索の組み合わせで商品を絞り込みも可能
 - 使用技術 Ransack・JavaScript
 
-[![Image from Gyazo](https://i.gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c.gif)](https://gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c)
+[![Image from Gyazo](https://i.gyazo.com/bdb7f452e14c54e950ac8ec914ecf714.gif)](https://gyazo.com/bdb7f452e14c54e950ac8ec914ecf714)
 
 ## 出品・編集画面に可変式カテゴリー選択欄（親→子→孫）を実装
 - 使用技術 JavaScript

@@ -27,41 +27,44 @@
 # 追加実装した機能についての画像やGIFおよびその説明
 
 ## 検索機能(キーワード検索とカテゴリー検索)
-   キーワード検索とカテゴリー検索の組み合わせで商品を絞り込みも可能
-   使用技術 Ransack・JavaScript
+- キーワード検索とカテゴリー検索の組み合わせで商品を絞り込みも可能
+- 使用技術 Ransack・JavaScript
 [![Image from Gyazo](https://i.gyazo.com/006e326579e25c930613ab292db25e9d.gif)](https://gyazo.com/006e326579e25c930613ab292db25e9d)
 
 ## 出品・編集画面に可変式カテゴリー選択欄（親→子→孫）を実装
-   使用技術 JavaScript
+- 使用技術 JavaScript
 [![Image from Gyazo](https://i.gyazo.com/ae7e72a4d7a6c8341692a84be09241fc.gif)](https://gyazo.com/ae7e72a4d7a6c8341692a84be09241fc)
 
 ## 出品・編集画面にタグのインクリメンタルサーチ機能を実装
-   使用技術 JavaScript
+- 使用技術 JavaScript
 [![Image from Gyazo](https://i.gyazo.com/c3b98f1e3a9e9717464257f5a35a0329.gif)](https://gyazo.com/c3b98f1e3a9e9717464257f5a35a0329)
 
 ## 出品・編集画面の画像プレビュー機能（変更時にプレビューが切り替わる）
-   使用技術 JavaScript
+- 使用技術 JavaScript
 [![Image from Gyazo](https://i.gyazo.com/6872b0ec55e50fc29493faa5ce3931e0.gif)](https://gyazo.com/6872b0ec55e50fc29493faa5ce3931e0)
 
 ## コメント機能（Action Cableでリアルタイム共有）
-   使用技術 Action Cable・JavaScript
+- 使用技術 Action Cable・JavaScript
 [![Image from Gyazo](https://i.gyazo.com/6ce381c1a5884009a62f9b3138a6f0ec.gif)](https://gyazo.com/
 6ce381c1a5884009a62f9b3138a6f0ec)
 
 ## コメント機能で投稿者以外に不要なエラーが表示されないようAJAXで制御
-   使用技術 JavaScript
+- 使用技術 JavaScript
 [![Image from Gyazo](https://i.gyazo.com/ca414611b48cc2a63e2d0bd4d08fef9a.gif)](https://gyazo.com/ca414611b48cc2a63e2d0bd4d08fef9a)
 
 ## バリデーションメッセージを日本語化
-   使用技術 I18n
+- 使用技術 I18n
 [![Image from Gyazo](https://i.gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c.gif)](https://gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c)
 
 # 実装予定の機能
+- カテゴリー検索機能に、子・孫カテゴリーを追加
+- 価格検索機能を追加
+- 結合テストの実装
 
 # データベース設計
 ![ER図](docs/ER.png)
 # 画面遷移図
-
+![画面遷移図](docs/screen_flow.png)
 # 開発環境
 - フロントエンド
 - バックエンド
@@ -113,72 +116,8 @@ rails s
 - JavaScript / Ajax（非同期処理）
 
 # 改善点
+- 出品画面でバリデーションエラーメッセージの後、可変式カテゴリーとタグのインクリメントサーチが表示されるよう修正
+- 編集画面でバリデーションエラーメッセージの後、タグのインクリメントサーチが表示されるよう修正
 
 # 制作時間
-
-## users テーブル
-
-| Column              | Type   | Options                   |
-| ------------------- | ------ | --------------------------|
-| nickname            | string | null: false               |
-| email               | string | null: false, unique: true |
-| encrypted_password  | string | null: false               |
-| last_name           | string | null: false               |
-| first_name          | string | null: false               |
-| last_name_furigana  | string | null: false               |
-| first_name_furigana | string | null: false               |
-| birth               | date   | null: false               |
-
-### Association
-
-- has_many :items
-- has_many :buys
-
-
-## items テーブル
-
-| Column                 | Type       | Options                        |
-| ---------------------- | ---------- | ------------------------------ |
-| name                   | string     | null: false                    |
-| product_description    | text       | null: false                    |
-| category_id            | integer    | null: false                    |
-| status_id              | integer    | null: false                    |
-| cover_delivery_cost_id | integer    | null: false                    |
-| prefecture_id          | integer    | null: false                    |
-| delivery_id            | integer    | null: false                    |
-| price                  | integer    | null: false                    |
-| user                   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- has_one    :buy
-
-## buys テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| item   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
-- has_one    :delivery
-
-## deliveries テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| post_code           | string     | null: false                    |
-| prefecture_id       | integer    | null: false                    |
-| municipality        | string     | null: false                    |
-| street_address      | string     | null: false                    |
-| building_name       | string     |                                |
-| telephone_number    | string     | null: false                    |
-| buy                 | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :buy
+2ヶ月

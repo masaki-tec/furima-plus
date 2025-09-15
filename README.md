@@ -65,6 +65,7 @@ https://furima-41561.onrender.com/
 [![Image from Gyazo](https://i.gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c.gif)](https://gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c)
 
 # 実装予定の機能
+- React を一部導入して、フロントとバック両方を扱えるフルスタック開発に挑戦予定
 - カテゴリー検索機能に、子・孫カテゴリーを追加
 - 価格検索機能を追加
 - 結合テストの実装

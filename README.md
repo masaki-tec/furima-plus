@@ -29,31 +29,38 @@
 ## 検索機能(キーワード検索とカテゴリー検索)
 - キーワード検索とカテゴリー検索の組み合わせで商品を絞り込みも可能
 - 使用技術 Ransack・JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/006e326579e25c930613ab292db25e9d.gif)](https://gyazo.com/006e326579e25c930613ab292db25e9d)
 
 ## 出品・編集画面に可変式カテゴリー選択欄（親→子→孫）を実装
 - 使用技術 JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/ae7e72a4d7a6c8341692a84be09241fc.gif)](https://gyazo.com/ae7e72a4d7a6c8341692a84be09241fc)
 
 ## 出品・編集画面にタグのインクリメンタルサーチ機能を実装
 - 使用技術 JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/c3b98f1e3a9e9717464257f5a35a0329.gif)](https://gyazo.com/c3b98f1e3a9e9717464257f5a35a0329)
 
 ## 出品・編集画面の画像プレビュー機能（変更時にプレビューが切り替わる）
 - 使用技術 JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/6872b0ec55e50fc29493faa5ce3931e0.gif)](https://gyazo.com/6872b0ec55e50fc29493faa5ce3931e0)
 
 ## コメント機能（Action Cableでリアルタイム共有）
 - 使用技術 Action Cable・JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/6ce381c1a5884009a62f9b3138a6f0ec.gif)](https://gyazo.com/
 6ce381c1a5884009a62f9b3138a6f0ec)
 
 ## コメント機能で投稿者以外に不要なエラーが表示されないようAJAXで制御
 - 使用技術 JavaScript
+
 [![Image from Gyazo](https://i.gyazo.com/ca414611b48cc2a63e2d0bd4d08fef9a.gif)](https://gyazo.com/ca414611b48cc2a63e2d0bd4d08fef9a)
 
 ## バリデーションメッセージを日本語化
 - 使用技術 I18n
+
 [![Image from Gyazo](https://i.gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c.gif)](https://gyazo.com/68f6eabe3c284c8f7bd573e5f44c969c)
 
 # 実装予定の機能
@@ -74,13 +81,13 @@
 - タスク管理
 
 # ローカルでの動作方法
-以下のコマンドを順に実行。
-git clone https://github.com/masaki-tec/furima-41561.git
-bundle install
-rails db:create
-rails db:migrate
-rails db:seed
-rails s
+- 以下のコマンドを順に実行。
+- git clone https://github.com/masaki-tec/furima-41561.git
+- bundle install
+- rails db:create
+- rails db:migrate
+- rails db:seed
+- rails s
 
 # 工夫したポイント
 

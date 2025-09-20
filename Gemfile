@@ -100,3 +100,5 @@ gem 'rails-i18n'
 gem 'ancestry'
 
 gem 'ransack'
+
+gem "aws-sdk-s3", require: false

@@ -80,8 +80,7 @@ https://furima-41561.onrender.com/
 ## コメント機能（Action Cableでリアルタイム共有）
 - 使用技術 Action Cable・JavaScript
 
-[![Image from Gyazo](https://i.gyazo.com/6ce381c1a5884009a62f9b3138a6f0ec.gif)](https://gyazo.com/
-6ce381c1a5884009a62f9b3138a6f0ec)
+[![Image from Gyazo](https://i.gyazo.com/6ce381c1a5884009a62f9b3138a6f0ec.gif)](https://gyazo.com/6ce381c1a5884009a62f9b3138a6f0ec)
 
 ## コメント機能で投稿者以外に不要なエラーが表示されないようAJAXで制御
 - 使用技術 JavaScript
